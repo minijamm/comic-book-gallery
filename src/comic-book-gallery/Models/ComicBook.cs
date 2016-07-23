@@ -18,7 +18,15 @@ namespace comic_book_gallery.Models
         {
             get
             {
-                return Series.Title + " #" + IssueNumber;
+                var series = Series;
+                if (series != null)
+                {
+                    return Series.Title + " #" + IssueNumber;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
@@ -27,8 +35,16 @@ namespace comic_book_gallery.Models
         {
             get
             {
-                return Series.Title.Replace(" ",  "-")
-                    .ToLower() + "-" + IssueNumber + ".jpg";
+                var series = Series;
+                if (series != null)
+                {
+                    return Series.Title.Replace(" ", "-")
+                        .ToLower() + "-" + IssueNumber + ".jpg";
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
            
