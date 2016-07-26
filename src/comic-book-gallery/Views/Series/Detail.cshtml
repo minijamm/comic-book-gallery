@@ -1,0 +1,35 @@
+﻿
+@model  comic_book_gallery.Models.Series
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.ShowBackBar = true;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="well">
+    <h5>Description</h5>
+    <div>
+        @Html.Raw(Model.DescriptionHTML) 
+       </div>
+</div>
+
+<h4>Comic Books Available in This Series</h4>
+
+<div class="row">
+    @foreach (var comicBook in Model.Issues)
+    {
+        <div class="col-md-3">
+            <h4>
+                @Html.ActionLink(comicBook.DisplayText, "Detail",
+                    new { id = comicBook.Id })
+            </h4>
+            <a href="@Url.Action("Detail", new { id = comicBook.Id })">
+                <img src="/Images/@comicBook.CoverImageFilename"
+                     alt="@comicBook.DisplayText"
+                     class="img-responsive" />
+            </a>
+        </div>
+    }
+</div>

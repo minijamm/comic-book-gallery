@@ -43,8 +43,9 @@ namespace comic_book_gallery.Data
                         comicBooks[comicBooks.Length - 1] = comicBook;
                     }
 
-
+                    
                 }
+                seriestoReturn.Issues = comicBooks;
             }
 
             return seriestoReturn;
